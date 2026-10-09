@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_Bengali, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Categories from "@/components/Categories";
+import AllMarqueeData from "@/components/AllMarqueeData";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const geistSans = Noto_Sans_Bengali({
+  variable: "--font-noto-bengali",
+  subsets: ["bengali", "latin"],
 });
 
 const geistMono = Geist_Mono({
@@ -29,7 +30,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Navbar />
         <Categories />
-        {children}
+        <AllMarqueeData />
+        <main className="bg-slate-100">
+          <div className="max-w-7xl w-full mx-auto">
+            {children}
+          </div>
+        </main>
         <Footer />
       </body>
     </html>

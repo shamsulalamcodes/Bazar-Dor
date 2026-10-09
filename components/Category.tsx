@@ -16,9 +16,9 @@ const CategoryLink = ({ href, label }: Props) => {
         <Link
             href={href}
             aria-current={isActive ? "page" : undefined}
-            className={`pb-1 border-b-2 transition-colors ${isActive
-                    ? "border-red-600 text-red-600 font-semibold"
-                    : "border-transparent hover:text-red-600"
+            className={`transition-colors ${isActive
+                ? "bg-green-600 ps-5 pe-2 text-white py-2 rounded font-semibold"
+                : "border-transparent hover:text-red-600"
                 }`}
         >
             {label}

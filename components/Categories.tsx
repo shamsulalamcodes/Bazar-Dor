@@ -8,7 +8,7 @@ const Categories = async () => {
     const categories: TCategories[] = await CategoriesData()
 
     return (
-        <div className="text-sm py-2 container mx-auto flex gap-4">
+        <div className="text-sm py-2 container mx-auto flex gap-4 items-center">
             {
                 categories.map((ct, i) => <Category href={`/category/${ct.id}`} key={i} label={ct.nameBn} />)
             }
