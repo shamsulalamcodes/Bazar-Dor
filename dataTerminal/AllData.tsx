@@ -1,11 +1,21 @@
 const base = process.env.BASE_URL_1
 
 export const CategoriesData = async () => {
-    const res = await fetch(`${base}/categories`)
+    const res = await fetch(`${base}/categories`, { cache: 'force-cache' })
+    return await res.json()
+}
+
+export const CategoryName = async (name: string) => {
+    const res = await fetch(`${base}/categories/${name}`, { cache: 'force-cache' })
+    return await res.json()
+}
+
+export const CategoryData = async (id: string) => {
+    const res = await fetch(`${base}/products?category=${id}`, { cache: 'force-cache' })
     return await res.json()
 }
 
 export const AllData = async () => {
-    const res = await fetch(`${base}/products`)
+    const res = await fetch(`${base}/products`, { cache: 'force-cache' })
     return await res.json()
 }

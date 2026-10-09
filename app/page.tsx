@@ -1,3 +1,4 @@
+import AllProducts from "@/components/AllProducts";
 import Banner from "@/components/Banner";
 import ParentCard from "@/components/ParentCard";
 
@@ -7,6 +8,7 @@ export default function Home() {
       <Banner />
       <ParentCard dir="up" title="আজ দাম বেড়েছে" />
       <ParentCard dir="down" title="আজ দাম কমেছে" />
+      <AllProducts />
     </div>
   );
 }
