@@ -1,13 +1,14 @@
 import { TAllProducts } from "@/types/types";
 import { FormatToBdFont, FormatToBdFontDigits, unitPer } from "../../shortcut/FormatToBdFont";
+import Link from "next/link";
 
 
 const Card = ({ data }: { data: TAllProducts }) => {
 
-    const { nameBn, unit, image, today, change } = data;
+    const { nameBn, unit, image, today, change, id } = data;
 
     return (
-        <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition hover:shadow-md sm:p-5">
+        <Link href={`/product/${id}`} className="rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm transition hover:shadow-md sm:p-5">
 
             <div className="flex items-center gap-3">
                 <div className="relative text-4xl h-24 w-24 shrink-0 overflow-hidden sm:h-14 sm:w-14">{image}</div>
@@ -36,7 +37,7 @@ const Card = ({ data }: { data: TAllProducts }) => {
                     {FormatToBdFontDigits.format(Math.abs(change?.pct))}%
                 </span>
             </div>
-        </div>
+        </Link>
     );
 };
 

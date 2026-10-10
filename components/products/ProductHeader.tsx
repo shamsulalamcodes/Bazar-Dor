@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { TProductDetail } from "@/types/types";
 import { FormatToBdFont, FormatToBdFontDigits, unitPer, unitShort } from "@/shortcut/FormatToBdFont";
 
@@ -13,14 +12,14 @@ const ProductHeader = ({ p }: { p: TProductDetail }) => {
 
     return (
         <div className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white/70 p-5 shadow-sm sm:p-8 md:flex-row md:items-center md:justify-between">
-            {/* Left: image + text */}
+
             <div className="flex items-center gap-4 sm:gap-5">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-slate-100 text-3xl sm:h-24 sm:w-24 sm:text-5xl md:h-[88px] md:w-[88px]">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-slate-100 text-3xl sm:h-24 sm:w-24 sm:text-5xl md:h-20 md:w-20">
                     {p.image}
                 </div>
 
-                <div className="min-w-0">
-                    <h1 className="text-xl font-extrabold leading-tight text-slate-900 sm:text-3xl">
+                <div className="">
+                    <h1 className="text-xl font-extrabold text-slate-900 sm:text-3xl">
                         {p.nameBn}
                     </h1>
                     <p className="mt-1 text-xs text-slate-500 sm:text-sm">
@@ -36,8 +35,8 @@ const ProductHeader = ({ p }: { p: TProductDetail }) => {
                 </div>
             </div>
 
-            {/* Right: today's price box */}
-            <div className="flex flex-col items-center rounded-2xl bg-slate-100/80 px-6 py-4 text-center md:min-w-[150px]">
+
+            <div className="flex flex-col items-center rounded-2xl bg-slate-100/80 px-6 py-4 text-center md:min-w-40">
                 <span className="text-xs text-slate-600 sm:text-sm">আজকের দাম</span>
                 <span className="text-4xl font-extrabold text-slate-900">
                     {FormatToBdFont(p.today)}

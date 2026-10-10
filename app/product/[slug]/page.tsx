@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import { TProductDetail } from "@/types/types";
 import Breadcrumb from "@/components/products/Breadcrumb";
 import ProductHeader from "@/components/products/ProductHeader";
@@ -6,27 +5,23 @@ import PriceSummary from "@/components/products/PriceSummary";
 import { unitShort } from "@/shortcut/FormatToBdFont";
 import MarketTable from "@/components/products/MarketTable";
 import { SingleProduct } from "@/dataTerminal/AllData";
+import { redirect } from "next/navigation";
 
 
-export default async function ProductsDetailsPage({
-    params,
-}: {
-    params: Promise<{ slug: string }>; // Next 15+: params is a Promise
-}) {
+export default async function ProductsDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
+
     const p: TProductDetail = await SingleProduct(slug);
 
-    if (!p) notFound();
+    if (!p) redirect('/');
 
     return (
         <main className="container mx-auto space-y-4 px-3 py-4 sm:space-y-5 sm:px-4">
-            <Breadcrumb
-                items={[
-                    { label: "হোম", href: "/" },
-                    { label: p.categoryNameBn, href: `/category/${p.id}` },
-                    { label: p.nameBn },
-                ]}
-            />
+            <Breadcrumb items={[
+                { label: "হোম", href: "/" },
+                { label: p.categoryNameBn, href: `/category/${p.category}` },
+                { label: p.nameBn },
+            ]} />
 
             <ProductHeader p={p} />
 
@@ -35,10 +30,7 @@ export default async function ProductsDetailsPage({
                     <h2 className="text-base font-bold text-slate-900 sm:text-lg">
                         দামের সারসংক্ষেপ
                     </h2>
-                    <PriceSummary
-                        markets={p.markets}
-                        unitLabel={unitShort[p.unit] ?? p.unit}
-                    />
+                    <PriceSummary markets={p.markets} unitLabel={unitShort[p.unit] ?? p.unit} />
                 </div>
 
                 <div className="space-y-3">

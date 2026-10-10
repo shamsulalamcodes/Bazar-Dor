@@ -5,6 +5,7 @@ import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import Categories from "@/components/category/Categories";
 import AllMarqueeData from "@/components/marquee/AllMarqueeData";
+import { Toast } from "@heroui/react";
 
 const geistSans = Noto_Sans_Bengali({
   variable: "--font-noto-bengali",
@@ -28,15 +29,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        <Categories />
-        <AllMarqueeData />
-        <main className="bg-slate-100">
-          <div className="max-w-7xl w-full mx-auto">
-            {children}
-          </div>
-        </main>
-        <Footer />
+        <Toast.Provider>
+          <Navbar />
+          <Categories />
+          <AllMarqueeData />
+          <main className="bg-slate-100">
+            <div className="max-w-7xl w-full mx-auto">
+              {children}
+            </div>
+          </main>
+          <Footer />
+        </Toast.Provider>
       </body>
     </html>
   );
