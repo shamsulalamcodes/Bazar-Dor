@@ -19,3 +19,8 @@ export const AllData = async () => {
     const res = await fetch(`${base}/products`, { cache: 'force-cache' })
     return await res.json()
 }
+
+export const SingleProduct = async (id: string) => {
+    const res = await fetch(`${base}/products/${id}`, { cache: 'force-cache' })
+    return await res.json()
+}

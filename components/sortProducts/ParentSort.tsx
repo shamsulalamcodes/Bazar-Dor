@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react';
-import { Sort } from './Sort';
 import { TAllProducts } from '@/types/types';
-import Card from './Card';
+import { Sort } from './Sort';
+import Card from '../shared/Card';
 
 const ParentSort = ({ dat }: { dat: TAllProducts[] }) => {
 

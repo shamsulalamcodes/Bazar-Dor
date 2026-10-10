@@ -1,6 +1,6 @@
 import AllProducts from "@/components/AllProducts";
-import Banner from "@/components/Banner";
-import ParentCard from "@/components/ParentCard";
+import Banner from "@/components/banner/Banner";
+import ParentCard from "@/components/shared/ParentCard";
 
 export default function Home() {
   return (

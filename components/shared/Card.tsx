@@ -1,12 +1,6 @@
 import { TAllProducts } from "@/types/types";
-import { FormatToBdFont, FormatToBdFontDigits } from "./FormatToBdFont";
+import { FormatToBdFont, FormatToBdFontDigits, unitPer } from "../../shortcut/FormatToBdFont";
 
-const unitBn: Record<string, string> = {
-    kg: "প্রতি কেজি",
-    litre: "প্রতি লিটার",
-    dozen: "প্রতি ডজন",
-    piece: "প্রতি পিস"
-};
 
 const Card = ({ data }: { data: TAllProducts }) => {
 
@@ -22,7 +16,7 @@ const Card = ({ data }: { data: TAllProducts }) => {
                         {nameBn}
                     </h3>
                     <p className="text-xs text-slate-500">
-                        {unitBn[unit] ?? unit}
+                        {unitPer[unit] ?? unit}
                     </p>
                 </div>
             </div>

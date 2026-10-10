@@ -1,6 +1,6 @@
 import { Chip } from '@heroui/react';
-import img from '../assets/bazar-hero.png'
-import { todayDate } from './Today';
+import img from '../../assets/bazar-hero.png'
+import { todayDate } from '../../shortcut/Today';
 import Image from 'next/image';
 import BannerBtn from './BannerBtn';
 

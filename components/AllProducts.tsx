@@ -1,7 +1,7 @@
 import { AllData } from "@/dataTerminal/AllData";
 import { TAllProducts } from "@/types/types";
-import Card from "./Card";
-import { FormatToBdFont } from "./FormatToBdFont";
+import Card from "./shared/Card";
+import { FormatToBdFont } from "../shortcut/FormatToBdFont";
 
 
 const AllProducts = async () => {

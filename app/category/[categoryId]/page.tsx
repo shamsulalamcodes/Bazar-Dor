@@ -1,7 +1,8 @@
 import CategoryHeader from "@/components/CategoryHeader";
-import ParentSort from "@/components/ParentSort";
+import ParentSort from "@/components/sortProducts/ParentSort";
 import { CategoryData, CategoryName } from "@/dataTerminal/AllData";
 import { TAllProducts } from "@/types/types";
+
 
 const CategoryPage = async ({ params }: { params: Promise<{ categoryId: string }> }) => {
 

@@ -1,4 +1,4 @@
-import { FormatToBdFont } from "./FormatToBdFont";
+import { FormatToBdFont } from "../shortcut/FormatToBdFont";
 
 type Props = {
     title: string;
