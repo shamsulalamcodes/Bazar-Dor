@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { TAllProducts } from '@/types/types';
 import { Sort } from './Sort';
 import Card from '../shared/Card';
+import { FormatToBdFont } from '@/shortcut/FormatToBdFont';
 
 const ParentSort = ({ dat }: { dat: TAllProducts[] }) => {
 
@@ -17,6 +18,7 @@ const ParentSort = ({ dat }: { dat: TAllProducts[] }) => {
             <div className="mb-5 rounded-2xl border border-slate-200 bg-white/70 px-5 py-4 shadow-sm sm:px-8 sm:py-5">
                 <Sort value={sort} onChange={setSort} />
             </div>
+            <p className='pb-3 text-xs text-slate-500 sm:text-sm'>মোট {FormatToBdFont(sortArr.length)}টি পণ্য দেখানো হচ্ছে</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {sortArr.map((ct, i) => <Card key={i} data={ct} />)}
             </div>

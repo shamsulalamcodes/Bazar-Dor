@@ -15,12 +15,12 @@ export type TSortProp = {
     value: "default" | "priceAsc" | "priceDesc";
     onChange: (v: "default" | "priceAsc" | "priceDesc") => void;
 };
+
 export type TMarketPrice = {
     market: string;
     division: string;
     min: number;
     max: number;
-    // no avg in your API; we compute it
 };
 
 export type TProductDetail = {

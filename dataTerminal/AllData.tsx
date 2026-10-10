@@ -1,4 +1,6 @@
-const base = process.env.BASE_URL_1
+// BASE_URL_1=https://api.api-store.workers.dev/api/bazardor
+// BASE_URL_2=https://api.abcz.workers.dev/api/bazardor
+const base = "https://openapi.programming-hero.com/api/bazardor"
 
 export const CategoriesData = async () => {
     const res = await fetch(`${base}/categories`, { cache: 'force-cache' })
@@ -20,7 +22,7 @@ export const AllData = async () => {
     return await res.json()
 }
 
-export const SingleProduct = async (id: string) => {
+export const SingleProduct = async (id: number) => {
     const res = await fetch(`${base}/products/${id}`, { cache: 'force-cache' })
     return await res.json()
 }

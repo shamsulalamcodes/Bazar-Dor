@@ -5,15 +5,15 @@ import PriceSummary from "@/components/products/PriceSummary";
 import { unitShort } from "@/shortcut/FormatToBdFont";
 import MarketTable from "@/components/products/MarketTable";
 import { SingleProduct } from "@/dataTerminal/AllData";
-import { redirect } from "next/navigation";
+import NotFound from "@/app/not-found";
 
 
-export default async function ProductsDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
+export default async function ProductsDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
 
-    const p: TProductDetail = await SingleProduct(slug);
+    const p: TProductDetail = await SingleProduct(Number(id));
 
-    if (!p) redirect('/');
+    if (!p.categoryNameBn) return <NotFound />;
 
     return (
         <main className="container mx-auto space-y-4 px-3 py-4 sm:space-y-5 sm:px-4">
