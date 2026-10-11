@@ -12,7 +12,7 @@ const CategoryPage = async ({ params }: { params: Promise<{ categoryId: string }
 
     const data: TAllProducts[] = await CategoryData(categoryId)
 
-    if (data.length < 1) return <NotFound />
+    if (!Array.isArray(data) || data.length < 1) return <NotFound />
 
     return (
         <div>

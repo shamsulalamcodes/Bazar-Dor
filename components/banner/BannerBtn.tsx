@@ -4,7 +4,7 @@ import { Button } from "@heroui/react";
 const BannerBtn = () => {
 
     const handleClick = () => {
-        document.getElementById('allProd')?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById('সব-পণ্য')?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     return (

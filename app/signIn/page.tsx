@@ -6,6 +6,7 @@ import { authClient } from "../lib/auth-client";
 import Link from "next/link";
 import GoogleBtn from "@/components/shared/GoogleBtn";
 import GithubBtn from "@/components/shared/GithubBtn";
+import Othoba from "@/components/shared/Othoba";
 
 const SignIn = () => {
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,69 +33,72 @@ const SignIn = () => {
             })
         }
         else {
-            toast.danger('Sign Up Failed!!', {
+            toast.danger('Signing In Failed!!', {
                 description: error?.message
             });
         }
     }
 
     return (
-        <div className="max-w-96 m-auto">
-            <Form className="w-full pt-10" onSubmit={onSubmit}>
+        <div className="max-w-[500px] m-auto">
+            <Form className="w-full mt-5" onSubmit={onSubmit}>
                 <Fieldset>
-                    <Fieldset.Legend className="text-3xl text-center">সাইন ইন</Fieldset.Legend>
+                    <Fieldset.Legend className="text-3xl text-center my-2">
+                        <p className="text-2xl font-bold">সাইন ইন</p>
+                        <p className="text-slate-600 text-sm">বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।</p>
+                    </Fieldset.Legend>
                     {/* <Description>Update your profile information.</Description> */}
-                    <FieldGroup>
-                        <TextField isRequired name="email" type="email">
-                            <Label>Email</Label>
-                            <Input placeholder="john@example.com" />
-                            <FieldError />
-                        </TextField>
+                    <div className="bg-white rounded-xl p-5 border ">
+                        <FieldGroup>
+                            <TextField isRequired name="email" type="email">
+                                <Label>ইমেইল</Label>
+                                <Input placeholder="you@example.com" />
+                                <FieldError />
+                            </TextField>
 
-                        <TextField
-                            isRequired
-                            minLength={8}
-                            name="password"
-                            type="password"
-                            validate={(value) => {
-                                if (value.length < 8) {
-                                    return "Password must be at least 8 characters";
-                                }
-                                if (!/[A-Z]/.test(value)) {
-                                    return "Password must contain at least one uppercase letter";
-                                }
-                                if (!/[0-9]/.test(value)) {
-                                    return "Password must contain at least one number";
-                                }
-                                return null;
-                            }}
-                        >
-                            <Label>Password</Label>
-                            <Input placeholder="Enter your password" />
-                            <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
-                            <FieldError />
-                        </TextField>
+                            <TextField
+                                isRequired
+                                minLength={8}
+                                name="password"
+                                type="password"
+                                validate={(value) => {
+                                    if (value.length < 8) {
+                                        return "Password must be at least 8 characters";
+                                    }
+                                    if (!/[A-Z]/.test(value)) {
+                                        return "Password must contain at least one uppercase letter";
+                                    }
+                                    if (!/[0-9]/.test(value)) {
+                                        return "Password must contain at least one number";
+                                    }
+                                    return null;
+                                }}
+                            >
+                                <Label>পাসওয়ার্ড</Label>
+                                <Input placeholder="কমপক্ষে ৮ অক্ষর" />
+                                <FieldError />
+                            </TextField>
 
-                    </FieldGroup>
-                    <Fieldset.Actions>
-                        <Button type="submit">
-                            <FloppyDisk />
-                            Login
-                        </Button>
-                        <Button type="reset" variant="secondary">
-                            Cancel
-                        </Button>
-                    </Fieldset.Actions>
+                        </FieldGroup>
+                        <Fieldset.Actions>
+                            <Button className='bg-green-600 w-full font-bold text-white' type="submit">
+                                সাইন ইন
+                            </Button>
+                        </Fieldset.Actions>
+                        <Othoba />
+                        <div className="flex justify-center gap-5 items-center">
+                            <GoogleBtn />
+                            <GithubBtn />
+                        </div>
+
+                        <p className="text-center">অ্যাকাউন্ট নেই? <Link className="text-green-600 underline" href="/signUp">সাইন আপ করুন</Link></p>
+                    </div>
                 </Fieldset>
             </Form>
-
-            <div className="flex justify-center gap-5 items-center">
-                <GoogleBtn />
-                <GithubBtn />
-            </div>
-
-            <p className="text-center pb-5">Do not have an account? <Link className="text-blue-600 underline" href="/signUp">Sign-UP now</Link></p>
-        </div>
+            <p className="text-slate-600 text-sm lg:my-5 py-1 rounded-2xl my-2 text-center hover:bg-slate-300">
+                <Link href="/">← হোম পেজে ফিরে যান</Link>
+            </p>
+        </div >
     );
 }
 

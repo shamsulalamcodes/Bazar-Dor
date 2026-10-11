@@ -1,5 +1,5 @@
 export type TCategories = {
-    nameBn: string, id: string
+    nameBn: string, id: string, icon: string
 }
 
 export type TAllProducts = {
@@ -9,6 +9,7 @@ export type TAllProducts = {
 export type TCategoryProps = {
     hr: string;
     label: string;
+    icon: string
 };
 
 export type TSortProp = {

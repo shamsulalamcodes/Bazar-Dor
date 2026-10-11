@@ -7,7 +7,7 @@ type TProps = { dir?: "up" | "down" | 'flat', title?: string };
 const ParentCard = async ({ dir, title }: TProps) => {
 
     const all: TAllProducts[] = await AllData();
-    const items = all.filter(p => p.change.dir === dir);
+    const items = all.filter(p => p?.change?.dir === dir).sort((a, b) => b.change.pct - a.change.pct);
 
     if (items.length === 0) return null;
 

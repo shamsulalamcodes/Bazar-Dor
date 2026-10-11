@@ -8,12 +8,12 @@ export const CategoriesData = async () => {
 }
 
 export const CategoryName = async (name: string) => {
-    const res = await fetch(`${base}/categories/${name}`, { cache: 'force-cache' })
+    const res = await fetch(`${base}/categories/${name}`)
     return await res.json()
 }
 
 export const CategoryData = async (id: string) => {
-    const res = await fetch(`${base}/products?category=${id}`, { cache: 'force-cache' })
+    const res = await fetch(`${base}/products?category=${id}`)
     return await res.json()
 }
 
@@ -23,6 +23,6 @@ export const AllData = async () => {
 }
 
 export const SingleProduct = async (id: number) => {
-    const res = await fetch(`${base}/products/${id}`, { cache: 'force-cache' })
+    const res = await fetch(`${base}/products/${id}`)
     return await res.json()
 }

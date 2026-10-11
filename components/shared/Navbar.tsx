@@ -7,17 +7,20 @@ import { todayDate } from '../../shortcut/Today';
 import Link from 'next/link';
 import { authClient } from '@/app/lib/auth-client';
 import img from '../../assets/logo-icon.png'
+import img2 from '../../assets/icons8-person-24.png'
 import { redirect } from "next/navigation";
+import Sk from "../skeletons/Sk";
 
 export default function Navbar() {
 
-    const { data } = authClient.useSession()
+    const { data, isPending } = authClient.useSession()
 
     const signOutt = async () => {
         await authClient.signOut()
         toast.danger('Successfully signed out!!');
         redirect('/signIn')
     }
+
     const avater = data?.user?.image ?? img;
 
     return (
@@ -34,7 +37,12 @@ export default function Navbar() {
                     </div>
                 </Link>
 
-                {data?.session?.token ?
+                {isPending ? (
+                    <div className="flex items-center gap-2" aria-busy="true">
+                        <Sk className="h-10 w-20 rounded-lg" />
+                        <Sk className="h-10 w-20 rounded-lg" />
+                    </div>
+                ) : data?.session?.token ?
                     <Dropdown>
                         <Button aria-label="Menu" className=' bg-white'>
                             <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
@@ -47,7 +55,12 @@ export default function Navbar() {
                                 <p className="text-xl">{data?.user?.name}</p>
                                 <p className="text-slate-600">{data?.user?.email}</p>
                             </div>
-                            <Button className='bg-white text-black'>👤 আমার প্রোফাইল</Button>
+                            <Button className='bg-white text-black'>
+                                <Link href="/profile" className="flex gap-1">
+                                    <Image src={img2} alt='person' width={20} height={20} />
+                                    আমার প্রোফাইল
+                                </Link>
+                            </Button>
                             <Button onClick={signOutt} className='bg-white text-black'>↩ সাইন আউট</Button>
                         </Dropdown.Popover>
                     </Dropdown>
@@ -60,7 +73,6 @@ export default function Navbar() {
                             <Button className='hover:text-red-600 bg-green-600 rounded-lg'>সাইন আপ</Button>
                         </Link>
                     </div>}
-
             </div>
         </div>
     );
