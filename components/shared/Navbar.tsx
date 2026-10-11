@@ -24,6 +24,8 @@ export default function Navbar() {
 
     const avater = data?.user?.image ?? img;
 
+    const firstLetter = data?.user?.name[0]
+
     return (
         <div className="max-w-7xl mx-auto w-full border-b border-separator">
             <div className="flex flex-col sm:flex-row gap-5 py-2 justify-between items-center">
@@ -49,7 +51,8 @@ export default function Navbar() {
                             <Dropdown>
                                 <Button aria-label="Menu" className=' bg-white'>
                                     <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
-                                        <Image width={40} height={40} className="rounded-lg" src={avater} alt={data?.user?.name} />
+                                        {data ? <Image width={40} height={40} className="rounded-lg" src={avater} alt={data?.user?.name} /> : <p className="rounded-xl py-2 px-5 text-center bg-green-600">{firstLetter}</p>}
+
                                         <p className="text-black font-bold">{data?.user?.name} ▾</p>
                                     </div>
                                 </Button>

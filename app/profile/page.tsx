@@ -41,6 +41,9 @@ export default function ProfilePage() {
         }
     };
 
+    const avater = data?.user?.image ?? img;
+    const firstLetter = data?.user?.name[0]
+
     const handleSignOut = async () => {
         await authClient.signOut()
         toast.danger('Successfully signed out!!');
@@ -59,16 +62,11 @@ export default function ProfilePage() {
                 {/* User card */}
                 <Card className="mt-5 flex-row items-center gap-4 rounded-3xl border border-neutral-200 bg-[#fafbf9] p-5 shadow-none">
                     <Avatar>
-                        {data && (
-                            <Image
-                                src={data.user.image || img0}
-                                alt={data.user.name ?? "User avatar"}
-                                width={50}
-                                height={50}
-                                className="rounded-lg"
-                            />
-                        )}
-                        {/* <Image src={data?.user?.img as string} alt={data?.user?.name as string} width={50} height={50} className="rounded-xl" /> */}
+                        {data ?
+                            <Image width={40} height={40} className="rounded-lg" src={avater} alt={data?.user?.name} />
+                            :
+                            <p className="rounded-xl py-2 px-5 text-center bg-green-600">{firstLetter}</p>
+                        }
                     </Avatar>
 
                     <div className="min-w-0 flex-1">

@@ -5,12 +5,12 @@
 **প্রয়োজনীয় পণ্যের দাম এক নজরে**
 *Daily essential commodity prices in Bangladesh, at a glance.*
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-16a34a?style=for-the-badge&logo=vercel&logoColor=white)](https://bazardor-one.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-16a34a?style=for-the-badge&logo=vercel&logoColor=white)](https://bazar-dor-nine-psi.vercel.app/)
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-[**🌐 Live Site**](https://bazardor-one.vercel.app) · [**🐞 Report a Bug**](https://github.com/shamsulalamcodes/Bazar-Dor/issues)
+[**🌐 Live Site**](https://bazar-dor-nine-psi.vercel.app/) · [**🐞 Report a Bug**](https://github.com/shamsulalamcodes/Bazar-Dor/issues)
 
 </div>
 
@@ -59,7 +59,7 @@ Users can see which prices went up or down today, browse products by category, s
 Product data is served from a public JSON API:
 
 ```
-BASE_URL: https://api.api-store.workers.dev/api/bazardor
+BASE_URL: https://openapi.programming-hero.com/api/bazardor
 
 /products              → all products
 /products?category=chal → filter by category

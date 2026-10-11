@@ -38,7 +38,7 @@ const SignUp = () => {
                 },
                 description: "You can continue using our bazar",
             })
-            redirect('/signIn')
+            redirect('/')
         }
         else {
             toast.danger('Sign Up Failed!!', {
