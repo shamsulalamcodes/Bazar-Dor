@@ -40,8 +40,8 @@ const SignIn = () => {
     }
 
     return (
-        <div className="max-w-[500px] m-auto">
-            <Form className="w-full mt-5" onSubmit={onSubmit}>
+        <div className="sm:w-3/4 md:w-1/2 w-full m-auto">
+            <Form className="mt-5" onSubmit={onSubmit}>
                 <Fieldset>
                     <Fieldset.Legend className="text-3xl text-center my-2">
                         <p className="text-2xl font-bold">সাইন ইন</p>
@@ -86,7 +86,7 @@ const SignIn = () => {
                             </Button>
                         </Fieldset.Actions>
                         <Othoba />
-                        <div className="flex justify-center gap-5 items-center">
+                        <div className="flex flex-col sm:flex-row justify-center sm:gap-5 items-center">
                             <GoogleBtn />
                             <GithubBtn />
                         </div>

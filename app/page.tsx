@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <AllProducts />
       <Suspense fallback={<SectionSkeleton />}>
         <ParentCard dir="up" title="আজ দাম বেড়েছে" />
       </Suspense>

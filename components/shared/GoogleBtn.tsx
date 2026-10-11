@@ -12,7 +12,7 @@ const GoogleBtn = () => {
             provider: "google", callbackURL: '/'
         });
 
-        if (error) {
+        if (!data) {
             toast.danger('Log In Failed!!', {
                 description: error?.message
             });

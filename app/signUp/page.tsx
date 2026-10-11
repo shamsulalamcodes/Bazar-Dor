@@ -48,8 +48,8 @@ const SignUp = () => {
     }
 
     return (
-        <div className="max-w-[500px] m-auto">
-            <Form className="w-full mt-5" onSubmit={onSbmit}>
+        <div className="sm:w-3/4 md:w-1/2 w-full m-auto">
+            <Form className="mt-5" onSubmit={onSbmit}>
                 <Fieldset>
                     <Fieldset.Legend className="text-3xl text-center my-2">
                         <p className="text-2xl font-bold">অ্যাকাউন্ট তৈরি করুন</p>
@@ -123,7 +123,7 @@ const SignUp = () => {
                             </Button>
                         </Fieldset.Actions>
                         <Othoba />
-                        <div className="flex justify-center gap-5 items-center">
+                        <div className="flex flex-col sm:flex-row justify-center sm:gap-5 items-center">
                             <GoogleBtn />
                             <GithubBtn />
                         </div>
@@ -132,7 +132,7 @@ const SignUp = () => {
                     </div>
                 </Fieldset>
             </Form>
-            <p className="text-slate-600 text-sm py-1 rounded-2xl my-3 lg:my-5 text-center hover:bg-slate-300">
+            <p className="text-slate-600 text-sm lg:my-5 py-1 rounded-2xl my-2 text-center hover:bg-slate-300">
                 <Link href="/">← হোম পেজে ফিরে যান</Link>
             </p>
         </div >

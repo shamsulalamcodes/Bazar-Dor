@@ -25,7 +25,7 @@ export default function ProfilePage() {
             name: dats.name
         })
 
-        if (!error) {
+        if (data) {
             toast.success("Updating Successful", {
                 actionProps: {
                     className: "bg-success text-success-foreground"
@@ -48,7 +48,7 @@ export default function ProfilePage() {
     };
 
     return (
-        <main className="min-h-screen bg-[#f0f5f0] px-4 py-16">
+        <main className="min-h-screen my-auto bg-[#f0f5f0] p-4">
             <div className="mx-auto w-full max-w-[627px]">
                 {/* Page heading */}
                 <h1 className="text-2xl font-bold text-neutral-900">আমার প্রোফাইল</h1>
@@ -65,7 +65,7 @@ export default function ProfilePage() {
                                 alt={data.user.name ?? "User avatar"}
                                 width={50}
                                 height={50}
-                                className="rounded-xl"
+                                className="rounded-lg"
                             />
                         )}
                         {/* <Image src={data?.user?.img as string} alt={data?.user?.name as string} width={50} height={50} className="rounded-xl" /> */}
@@ -86,7 +86,7 @@ export default function ProfilePage() {
                         onPress={handleSignOut}
                         className="gap-1.5 border border-red-500 bg-transparent text-red-600"
                     >
-                        <Image src={img} alt='out' width={20} height={20} />
+                        <Image src={img} alt='out' className='text-red-600' width={20} height={20} />
                         সাইন আউট
                     </Button>
                 </Card>
